@@ -1,5 +1,10 @@
 nav {
-  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+  font-family: "Darker Grotesque", sans-serif;
 }
 
 .wrapper {
@@ -12,13 +17,22 @@ nav {
 }
 
 .brand {
-  display: flex;
-  max-width: 150px;
   height: 100%;
+  display: flex;
+  font-size: 40px;
+  color: #ffffff;
+  max-width: 250px;
+  text-decoration: none;
+  flex-direction: column;
 }
 
-.brand img {
-  width: 100%;
+.brand p {
+  line-height: 45px;
+}
+
+.list {
+  flex-wrap: 1;
+  display: flex;
 }
 
 .list li {
@@ -26,6 +40,13 @@ nav {
 }
 
 .list li a {
-  color: #000000;
+  color: #ffffff;
+  font-size: 45px;
   text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .brand {
+    font-size: 45px;
+  }
 }

@@ -1,5 +1,11 @@
+import Banner from "../Banner";
+
 const Products = () => {
-  return <div>Products</div>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 };
 
 export default Products;

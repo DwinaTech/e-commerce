@@ -7,10 +7,8 @@ const NavBar = () => {
       <div className="container">
         <div className="wrapper">
           <Link to="/" className="brand">
-            <img
-              src={`${process.env.PUBLIC_URL}/e-commerce-logo.png`}
-              alt="brand"
-            />
+            <p>E-commerce</p>
+            <p>Application</p>
           </Link>
           <ul className="list">
             <li>

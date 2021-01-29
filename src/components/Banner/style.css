@@ -1,0 +1,39 @@
+.banner-background {
+  height: 484px;
+  background-size: cover;
+  justify-content: center;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-image: url("https://images.ctfassets.net/royi30b2qd26/2DICwTKF67ogHlAXgBV3lE/b2dfd40a2e74167b48bfd84c63845f58/delivery-1600x464.jpg?w=1600&q=100");
+}
+
+.banner {
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 484px;
+  display: flex;
+  position: absolute;
+  color: #ffffff;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.banner .contents {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.banner .contents h2 {
+  font-size: 55px;
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.banner .contents p {
+  font-size: 28px;
+  margin-top: 15px;
+  line-height: 40px;
+}
