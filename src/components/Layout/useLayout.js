@@ -1,5 +1,12 @@
 import React from "react";
-import { Man, Woman, Home, ShoppingCart } from "@mui/icons-material";
+import {
+  Man,
+  Home,
+  Woman,
+  Favorite,
+  DesktopMac,
+  ShoppingCart,
+} from "@mui/icons-material";
 import { linksData } from "./CustomDrawer";
 
 export const renderIcon = (text) => {
@@ -9,9 +16,9 @@ export const renderIcon = (text) => {
     case linksData[1].text:
       return <ShoppingCart sx={{ color: "#efefef" }} />;
     case linksData[2].text:
-      return <Home sx={{ color: "#efefef" }} />;
+      return <Favorite sx={{ color: "#efefef" }} />;
     case linksData[3].text:
-      return <Home sx={{ color: "#efefef" }} />;
+      return <DesktopMac sx={{ color: "#efefef" }} />;
     case linksData[4].text:
       return <Man sx={{ color: "#efefef" }} />;
     case linksData[5].text:
