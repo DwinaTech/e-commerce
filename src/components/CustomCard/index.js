@@ -19,8 +19,8 @@ const StyledMedia = styled(CardMedia)`
 `;
 
 const covertNumToStars = (num) => {
-  return Array.from(Array(Math.round(num))).map((index) => (
-    <span key={index}>⭐</span>
+  return Array.from(Array(Math.round(num))).map((index, idx) => (
+    <span key={idx}>⭐</span>
   ));
 };
 
