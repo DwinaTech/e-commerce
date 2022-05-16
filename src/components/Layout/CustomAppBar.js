@@ -50,9 +50,7 @@ const CustomAppBar = ({ open, handleDrawerOpen }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="h2">
-          <Link component={RouterLink} to="/" color="#fff" underline="none">
-            {pageName}
-          </Link>
+          {pageName}
         </Typography>
         <Typography variant="h6" noWrap component="h2">
           <Link
