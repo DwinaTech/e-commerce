@@ -6,10 +6,14 @@ export const useJewelry = () => {
 
   useEffect(() => {
     const fetchJewelries = async () => {
-      const { data } = await axios.get(
-        "https://fakestoreapi.com/products/category/jewelery"
-      );
-      setJewelries(data);
+      try {
+        const { data } = await axios.get(
+          "https://fakestoreapi.com/products/category/jewelery"
+        );
+        setJewelries(data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchJewelries();
   }, []);
