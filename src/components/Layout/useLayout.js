@@ -8,6 +8,7 @@ import {
   ShoppingCart,
 } from "@mui/icons-material";
 import { linksData } from "./CustomDrawer";
+import { useLocation } from "react-router-dom";
 
 export const renderIcon = (text) => {
   switch (text) {
@@ -28,8 +29,18 @@ export const renderIcon = (text) => {
   }
 };
 
+const pagesMapping = {
+  "/": "Shope",
+  "/chart": "Check out",
+  "/jewelry": "Jewelry",
+  "/electronics": "Electronics",
+  "/men-clothing": "Men clothing",
+  "/women-clothing": "Women clothing",
+};
+
 export const useLayout = () => {
   const [open, setOpen] = React.useState(false);
+  const location = useLocation();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -39,5 +50,7 @@ export const useLayout = () => {
     setOpen(false);
   };
 
-  return { open, handleDrawerOpen, handleDrawerClose };
+  const pageName = pagesMapping[location.pathname] || "Shope";
+
+  return { open, pageName, handleDrawerOpen, handleDrawerClose };
 };

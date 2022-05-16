@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
 import { drawerWidth } from ".";
+import { useLayout } from "./useLayout";
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -33,30 +34,39 @@ const StyledToolBar = styled(Toolbar)`
   justify-content: space-between;
 `;
 
-const CustomAppBar = ({ open, handleDrawerOpen }) => (
-  <AppBar position="fixed" open={open}>
-    <StyledToolBar>
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        onClick={handleDrawerOpen}
-        edge="start"
-        sx={{ mr: 2, ...(open && { display: "none" }) }}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Typography variant="h6" noWrap component="h2">
-        <Link component={RouterLink} to="/" color="#fff" underline="none">
-          Shope
-        </Link>
-      </Typography>
-      <Typography variant="h6" noWrap component="h2">
-        <Link component={RouterLink} to="/chart" color="#fff" underline="none">
-          Chart
-        </Link>
-      </Typography>
-    </StyledToolBar>
-  </AppBar>
-);
+const CustomAppBar = ({ open, handleDrawerOpen }) => {
+  const { pageName } = useLayout();
+
+  return (
+    <AppBar position="fixed" open={open}>
+      <StyledToolBar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          sx={{ mr: 2, ...(open && { display: "none" }) }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" noWrap component="h2">
+          <Link component={RouterLink} to="/" color="#fff" underline="none">
+            {pageName}
+          </Link>
+        </Typography>
+        <Typography variant="h6" noWrap component="h2">
+          <Link
+            component={RouterLink}
+            to="/chart"
+            color="#fff"
+            underline="none"
+          >
+            Chart
+          </Link>
+        </Typography>
+      </StyledToolBar>
+    </AppBar>
+  );
+};
 
 export default CustomAppBar;
