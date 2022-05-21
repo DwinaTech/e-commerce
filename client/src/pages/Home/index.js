@@ -3,7 +3,7 @@ import { useHome } from "./useHome";
 import { Grid } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { Layout } from "../../components/Layout";
-import { getProducts } from "../../queries/products";
+import { PRODUCTS } from "../../queries/products";
 import { CustomCard } from "../../components/CustomCard";
 import { useSingleProduct } from "../SingleProduct/useSingleProduct";
 
@@ -11,7 +11,7 @@ const Home = () => {
   const { dataFlattener } = useHome();
   const { navigateToProductPage } = useSingleProduct();
 
-  const { loading, data } = useQuery(getProducts);
+  const { loading, data } = useQuery(PRODUCTS);
 
   if (loading) return <h4>...loading</h4>;
   return (
