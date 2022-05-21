@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import { CustomCard } from "../CustomCard";
-import { Layout } from "../Layout";
+import { CustomCard } from "../../components/CustomCard";
+import { Layout } from "../../components/Layout";
 import { useJewelry } from "./useJewelry";
 
 export const Jewelry = () => {

@@ -1,12 +1,12 @@
 import React from "react";
-import Home from "./components/Home";
-import Chart from "./components/Chart";
-import { Jewelry } from "./components/Jewelry";
-import { MenClothes } from "./components/MenClothes";
-import { Electronics } from "./components/Electronics";
-import { WomenClothes } from "./components/WomenClothes";
+import Home from "./pages/Home";
+import Chart from "./pages/Chart";
+import { Jewelry } from "./pages/Jewelry";
+import { MenClothes } from "./pages/MenClothes";
+import { Electronics } from "./pages/Electronics";
+import { WomenClothes } from "./pages/WomenClothes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SingleProduct } from "./components/SingleProduct";
+import { SingleProduct } from "./pages/SingleProduct";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({

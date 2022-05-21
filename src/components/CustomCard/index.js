@@ -1,15 +1,20 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
+import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import CardContent from "@mui/material/CardContent";
 
 const StyledTitle = styled(Typography)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+const StyledCardActionArea = styled(CardActionArea)`
+  padding-top: 20px;
 `;
 
 const StyledMedia = styled(CardMedia)`
@@ -19,27 +24,40 @@ const StyledMedia = styled(CardMedia)`
 `;
 
 const covertNumToStars = (num) => {
-  return Array.from(Array(Math.round(num))).map((index, idx) => (
+  return Array.from(Array(Math.round(num))).map((_, idx) => (
     <span key={idx}>⭐</span>
   ));
 };
 
-export const CustomCard = ({ product }) => (
-  <Card sx={{ maxWidth: 345, textAlign: "center" }}>
-    <CardActionArea>
-      <StyledMedia
-        component="img"
-        height="140"
-        image={product.image}
-        alt="green iguana"
-      />
-      <CardContent>
-        <StyledTitle component="h3">{product.title}</StyledTitle>
-        <StyledTitle component="h3">
-          {covertNumToStars(product.rating.rate)}
-        </StyledTitle>
-        <StyledTitle component="h3">£ {product.price}</StyledTitle>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-);
+export const CustomCard = ({ product }) => {
+  const navigate = useNavigate();
+  const defaultImage = product.images.find(
+    (image) => image.name === product.colour
+  );
+  const url = defaultImage ? `http://localhost:1337${defaultImage.url}` : "";
+
+  return (
+    <Card
+      sx={{ maxWidth: 345, textAlign: "center" }}
+      onClick={() => {
+        navigate(`/single-product/${product.id}`);
+      }}
+    >
+      <StyledCardActionArea>
+        <StyledMedia
+          component="img"
+          height="140"
+          image={url}
+          alt="green iguana"
+        />
+        <CardContent>
+          <StyledTitle component="h3">{product.title}</StyledTitle>
+          <StyledTitle component="h3">
+            {covertNumToStars(product.rating)}
+          </StyledTitle>
+          <StyledTitle component="h3">£ {product.price}</StyledTitle>
+        </CardContent>
+      </StyledCardActionArea>
+    </Card>
+  );
+};
