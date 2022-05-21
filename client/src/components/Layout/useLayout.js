@@ -36,6 +36,7 @@ const pagesMapping = {
   "/electronics": "Electronics",
   "/men-clothing": "Men clothing",
   "/women-clothing": "Women clothing",
+  "/single-product": "Product view",
 };
 
 export const useLayout = () => {
@@ -50,7 +51,11 @@ export const useLayout = () => {
     setOpen(false);
   };
 
-  const pageName = pagesMapping[location.pathname] || "Shope";
+  const singlePro = location.pathname.includes("/single-product");
+
+  const pageName = singlePro
+    ? "Product view"
+    : pagesMapping[location.pathname] || "Shope";
 
   return { open, pageName, handleDrawerOpen, handleDrawerClose };
 };
