@@ -6,6 +6,7 @@ import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
+import { BASE_URL } from "../../constants";
 
 const StyledTitle = styled(Typography)`
   white-space: nowrap;
@@ -23,7 +24,7 @@ const StyledMedia = styled(CardMedia)`
   max-width: 100%;
 `;
 
-const covertNumToStars = (num) => {
+export const covertNumToStars = (num) => {
   return Array.from(Array(Math.round(num))).map((_, idx) => (
     <span key={idx}>⭐</span>
   ));
@@ -34,7 +35,7 @@ export const CustomCard = ({ product }) => {
   const defaultImage = product.images.find(
     (image) => image.name === product.colour
   );
-  const url = defaultImage ? `http://localhost:1337${defaultImage.url}` : "";
+  const url = defaultImage ? `${BASE_URL}${defaultImage.url}` : "";
 
   return (
     <Card
